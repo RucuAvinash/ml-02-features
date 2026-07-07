@@ -239,3 +239,9 @@ dtype: int64
 2026-07-06 20:42:39 | INFO | ML | Target: score
 2026-07-06 20:42:39 | INFO | ML | ----- in a script, call plt.show() once at the end to display all charts -----
 2026-07-06 20:42:39 | INFO | ML | ----- in a script, CLOSE the chart windows with the close button to CONTINUE -----
+2026-07-06 22:13:44 | INFO | ML | Workflow complete
+2026-07-06 22:13:44 | INFO | ML | IMPORTANT: This script creates chart windows.
+2026-07-06 22:13:44 | INFO | ML | Close chart windows and terminate this process with CTRL+c as needed.
+2026-07-06 22:13:44 | INFO | ML | ========================
+2026-07-06 22:13:44 | INFO | ML | Executed successfully!
+2026-07-06 22:13:44 | INFO | ML | ========================
