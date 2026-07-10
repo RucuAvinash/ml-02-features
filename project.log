@@ -825,3 +825,59 @@ dtype: int64
 2026-07-10 00:04:37 | INFO | ML | ========================
 2026-07-10 00:04:37 | INFO | ML | Executed successfully!
 2026-07-10 00:04:37 | INFO | ML | ========================
+2026-07-10 18:57:32 | INFO | M02 | === RUN START ===
+2026-07-10 18:57:32 | INFO | M02 | project=M02
+2026-07-10 18:57:32 | INFO | M02 | repo_dir=ml-02-features
+2026-07-10 18:57:32 | INFO | M02 | python=3.14.2
+2026-07-10 18:57:32 | INFO | M02 | os=Windows 11
+2026-07-10 18:57:32 | INFO | M02 | shell=powershell
+2026-07-10 18:57:32 | INFO | M02 | cwd=notebooks
+2026-07-10 18:57:32 | INFO | M02 | github_actions=False
+2026-07-10 18:57:32 | INFO | M02 | Confirming installation:
+2026-07-10 18:57:32 | INFO | M02 |   python:       3.14.2
+2026-07-10 18:57:32 | INFO | M02 |   pandas:       3.0.3
+2026-07-10 18:57:32 | INFO | M02 |   numpy:        2.5.1
+2026-07-10 18:57:32 | INFO | M02 |   scikit-learn: 1.9.0
+2026-07-10 18:57:32 | INFO | M02 |   seaborn:      0.13.2
+2026-07-10 18:57:32 | INFO | M02 |   matplotlib:   3.11.0
+2026-07-10 18:57:32 | INFO | M02 | Loading dataset: penguins
+2026-07-10 18:57:32 | INFO | M02 | Loaded: 344 rows (instances), 7 columns
+2026-07-10 18:57:32 | INFO | M02 | The intended target is 'body_mass_g'.
+2026-07-10 18:57:32 | INFO | M02 | Any feature derived FROM the target would leak the answer. Avoid those.
+2026-07-10 18:57:32 | INFO | M02 | Per-column completeness and type:
+2026-07-10 18:57:32 | INFO | M02 |   species              str        present=100.0%  missing=0
+2026-07-10 18:57:32 | INFO | M02 |   island               str        present=100.0%  missing=0
+2026-07-10 18:57:32 | INFO | M02 |   bill_length_mm       float64    present= 99.4%  missing=2
+2026-07-10 18:57:32 | INFO | M02 |   bill_depth_mm        float64    present= 99.4%  missing=2
+2026-07-10 18:57:32 | INFO | M02 |   flipper_length_mm    float64    present= 99.4%  missing=2
+2026-07-10 18:57:32 | INFO | M02 |   body_mass_g          float64    present= 99.4%  missing=2
+2026-07-10 18:57:32 | INFO | M02 |   sex                  str        present= 96.8%  missing=11
+2026-07-10 18:57:32 | INFO | M02 | Numeric summary (for spread / outliers):
+2026-07-10 18:57:32 | DEBUG | M02 | 
+       bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g
+count      342.000000     342.000000         342.000000   342.000000
+mean        43.921930      17.151170         200.915205  4201.754386
+std          5.459584       1.974793          14.061714   801.954536
+min         32.100000      13.100000         172.000000  2700.000000
+25%         39.225000      15.600000         190.000000  3550.000000
+50%         44.450000      17.300000         197.000000  4050.000000
+75%         48.500000      18.700000         213.000000  4750.000000
+max         59.600000      21.500000         231.000000  6300.000000
+2026-07-10 18:57:32 | INFO | M02 | Constructing features (vectorized, none are derived from the target)
+2026-07-10 18:57:32 | INFO | M02 | Added features: ['bill_ratio', 'flipper_cm', 'size_class']
+2026-07-10 18:57:32 | DEBUG | M02 | Sample of constructed features:
+2026-07-10 18:57:32 | DEBUG | M02 | 
+   flipper_length_mm  bill_ratio  flipper_cm size_class
+0              181.0    2.090909        18.1      small
+1              186.0    2.270115        18.6      small
+2              195.0    2.238889        19.5     medium
+3                NaN         NaN         NaN        NaN
+4              193.0    1.901554        19.3     medium
+2026-07-10 18:57:32 | INFO | M02 | ========================
+2026-07-10 18:57:32 | INFO | M02 | SUMMARY
+2026-07-10 18:57:32 | INFO | M02 | ========================
+2026-07-10 18:57:32 | INFO | M02 | Dataset:          penguins
+2026-07-10 18:57:32 | INFO | M02 | Original columns: 7
+2026-07-10 18:57:32 | INFO | M02 | After features:   10
+2026-07-10 18:57:32 | INFO | M02 | Intended target:  body_mass_g
+2026-07-10 18:57:32 | INFO | M02 | ========================
