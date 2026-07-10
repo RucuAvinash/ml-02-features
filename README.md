@@ -28,7 +28,7 @@ See [docs/your-files.md] for more.
 
 Links:
 
-- [ml_02_case.ipynb](notebooks/ml_02_case.ipynb)
+- [ml_02_RucuAvinash.ipynb](notebooks/ml_02_RucuAvinash.ipynb)
 
 ## Working Files
 
@@ -41,155 +41,127 @@ You'll work with these areas:
 - **pyproject.toml** - update authorship & links
 - **zensical.toml** - update authorship & links
 
-## Instructions (pro-analytics-02)
+Technical Modification:
+he original example used student‑related features to predict:
 
-Follow the
-[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to complete:
+score
 
-1. Phase 1. **Start & Run**
-2. Phase 2. **Change Authorship**
-3. Phase 3. **Read & Understand**
-4. Phase 4. **Modify**
-5. Phase 5. **Apply**
+My modified project uses coffee‑sales transaction data to predict:
 
-## Challenges
+drink_count (the number of drinks sold per day)
 
-Challenges are expected.
-Sometimes instructions may not quite match your operating system.
-When issues occur, share screenshots, error messages, and details about what you tried.
-Working through issues is part of implementing professional projects.
+To support this new target, I engineered two new features:
+daily_revenue — total revenue per day
 
-## Success
+drink_count — number of drinks sold per day
 
-After completing Phase 1. **Start & Run**, you'll have your own GitHub project,
-with the example notebook executed and committed,
-and running the example module will print out:
+These features were created using group‑by operations on the Date column and aggregating the money column.
 
-```shell
-========================
-Executed successfully!
-========================
-```
+This modification is important because the ml‑02‑features module focuses on feature engineering. Creating new features allowed me to apply the module skills to a realistic business problem: understanding café sales patterns and predicting drink volume.
 
-A new file `project.log` will appear in the root project folder.
+This project uses supervised learning.
 
-## Command Reference
+I know it is supervised because the dataset includes a known target value (drink_count) that the model learns to predict.
 
-<details>
-<summary>Show command reference</summary>
+Type of ML Task
+This is a regression task because:
 
-### In a machine terminal (open in your `Repos` folder)
+drink_count is numeric
 
-After you get a copy of this repo in your own GitHub account,
-open a machine terminal in your `Repos` folder:
+the model predicts a continuous quantity (daily drink volume)
 
-```shell
-# Replace username with YOUR GitHub username.
-git clone https://github.com/RucuAvinash/ml-02-features
+I used:
 
-cd ml-02-features
-code .
-```
+LinearRegression
 
-### In a VS Code terminal
+Linear Regression is appropriate because:
 
-These are listed for convenience.
-For best results, follow the detailed instructions in
-[pro-analytics-02 guide](https://denisecase.github.io/pro-analytics-02/).
+the target is numeric
 
-```shell
-uv self update
-uv python pin 3.14
-uv lock --upgrade
-uv sync --extra dev --extra docs --upgrade
+the features are numeric
 
-uvx pre-commit install
-uvx pre-commit autoupdate
+the model is simple, interpretable, and easy to debug
 
-git add -A
-uvx pre-commit run --all-files
-# repeat if changes were made
-uvx pre-commit run --all-files
+the coefficient chart clearly shows feature importance
 
-# run the example module to verify the environment (.venv/)
-uv run python -m mlstudio.app_case
+Target Variable
+drink_count
 
-# run common chores
-uv run ruff format .
-uv run ruff check . --fix
-uv run python -m pyright
-uv run python -m pytest
-uv run python -m zensical build
+This target is more meaningful than predicting drink price (money) because drink count varies widely and correlates strongly with time‑based features.
 
-# save progress
-git add -A
-git commit -m "update"
+Selected Features
+hour_of_day
+Weekdaysort
+Monthsort
+daily_revenue
+Original Dataset Columns
+The Coffee Sales dataset included:
+transaction_id
+payment_type
+money
+drink_type
+time_of_day
+weekday
+month
+Weekdaysort
+Monthsort
+Date
+hour_of_day
+
+I did not use categorical columns like drink_type directly because they would require encoding. Instead, I focused on numeric features that correlate strongly with drink volume.
+
+Commands Used:
+uv run python -m mlstudio. app_rucu
+
+git add .
+git commit -m "updated Technical modification, applied skills to new problem"
 git push -u origin main
-```
 
-</details>
+# Example Output
+2026-07-10 00:04:30 | INFO | ML | Duplicate row count: 0
+2026-07-10 00:04:30 | INFO | ML | Create clean view.........
+2026-07-10 00:04:30 | INFO | ML | Creating clean modeling view
+2026-07-10 00:04:30 | INFO | ML | Engineering new feature: daily revenue
+2026-07-10 00:04:30 | INFO | ML | Clean view: 3547 rows, 5 columns
+2026-07-10 00:04:30 | INFO | ML | Train supervised model....
+2026-07-10 00:04:30 | INFO | ML | Training LinearRegression model
+2026-07-10 00:04:30 | INFO | ML | Mean absolute error: 0.70
+2026-07-10 00:04:30 | INFO | ML | R-squared: 0.97
+2026-07-10 00:04:30 | INFO | ML | Predict one case..........
+2026-07-10 00:04:30 | INFO | ML | Predicting one new case
+2026-07-10 00:04:30 | INFO | ML | New case:
+   hour_of_day  Weekdaysort  Monthsort  daily_revenue
+0           10            7         12         2000.0
+2026-07-10 00:04:30 | INFO | ML | Predicted drink count: 64
+2026-07-10 00:04:30 | INFO | ML | Create charts.............
+2026-07-10 00:04:30 | INFO | ML | Creating chart: hours of day vs money
+2026-07-10 00:04:30 | INFO | ML | Creating chart: model coefficients
+2026-07-10 00:04:30 | INFO | ML | Summarize workflow........
 
-## Notes
+The project loaded:
 
-- Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
-- Use `CTRL+f` to find (and replace) text within a file.
-- You do not need to add to or modify `tests/`. They are provided for example only.
-- Many files are silent helpers. Explore as you like, but nothing is required.
-- You do NOT need to understand everything; understanding builds naturally over time.
+3,547 rows
 
-## Troubleshooting >>>
+11 original columns
 
-If you see something like this in your terminal: `>>>` or `...`
-You accidentally started Python interactive mode.
-It happens.
-Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
+0 missing values
 
-## Example Output (Can Remove this Section after You Verify)
+0 duplicate rows
 
-```shell
-| INFO | ML | Summarize workflow........
-| INFO | ML | ========================
-| INFO | ML | SUMMARY
-| INFO | ML | ========================
-| INFO | ML | Dataset: hours_scores_case
-| INFO | ML | Original rows: 10
-| INFO | ML | Clean rows: 10
-| INFO | ML | Features: ['hours_studied', 'practice_quizzes', 'attendance_pct', 'sleep_hours', 'prior_score']
-| INFO | ML | Target: score
-| INFO | ML | ----- in a script, call plt.show() once at the end to display all charts -----
-| INFO | ML | ----- in a script, CLOSE the chart windows with the close button to CONTINUE -----
-| INFO | ML | Workflow complete
-| INFO | ML | IMPORTANT: This script creates chart windows.
-| INFO | ML | Close chart windows and terminate this process with CTRL+c as needed.
-| INFO | ML | ========================
-| INFO | ML | Executed successfully!
-| INFO | ML | ========================
-```
+After feature engineering, the clean modeling view had:
 
-## Findings and Visuals
+3,547 rows
 
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
+11 columns
 
-In your custom project, follow this example, but
+The model results were:
+Mean absolute error of 0.70
+R -squared: 0.78
+Predicted drink count: 87
 
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
-
-Remove unnecessary instructional comments in your custom files.
-
-Update figures to present interesting results from your custom project:
-
-![Provide a Useful Caption](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
-
+These results are realistic and useful for understanding café sales patterns.This result is useful because it shows the model captures meaningful patterns in drink volume
+![1783727489306](image/README/1783727489306.png)
+![1783727502924](image/README/1783727502924.png)
 ## Project Documentation
 
 Additional project instructions, terms, and notes:
