@@ -111,11 +111,11 @@ hour_of_day
 I did not use categorical columns like drink_type directly because they would require encoding. Instead, I focused on numeric features that correlate strongly with drink volume.
 
 Commands Used:
-uv run python -m mlstudio. app_rucu
+uv run python -m mlstudio. app_rucu<br>
 
-git add .
-git commit -m "updated Technical modification, applied skills to new problem"
-git push -u origin main
+git add . <br>
+git commit -m "updated Technical modification, applied skills to new problem"<br>
+git push -u origin main<br>
 
 # Example Output
 2026-07-10 00:04:30 | INFO | ML | Duplicate row count: 0
